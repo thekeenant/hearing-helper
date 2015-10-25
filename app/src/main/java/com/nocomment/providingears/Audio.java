@@ -1,8 +1,10 @@
 package com.nocomment.providingears;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
+import android.os.Vibrator;
 import android.util.Log;
 
 public class Audio extends Activity {
@@ -26,8 +28,15 @@ public class Audio extends Activity {
         @Override
         protected String doInBackground(String... params) {
             NoiseRecorder noiseRecorder = new NoiseRecorder();
-            for (int i = 0; i < 50; i++)
-                Log.d("NOISE LEVEL", String.valueOf(noiseRecorder.highestNoiseLevel()));
+            double db = 0;
+            for (int i = 0; i < 50; i++) {
+                db = noiseRecorder.highestNoiseLevel();
+                if (db > 70) {
+                    Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    v.vibrate(500);
+                }
+                Log.d("NOISE LEVEL", String.valueOf(db));
+            }
             return null;
         }
 
