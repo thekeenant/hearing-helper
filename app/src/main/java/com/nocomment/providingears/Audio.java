@@ -31,7 +31,7 @@ public class Audio extends Activity {
             double db = 0;
             for (int i = 0; i < 50; i++) {
                 db = noiseRecorder.highestNoiseLevel();
-                if (db > 70) {
+                if (db > 90) {
                     Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                     v.vibrate(500);
                 }
