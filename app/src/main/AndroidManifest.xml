@@ -24,10 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Translate"
-            android:label="@string/title_activity_translate"
-            android:parentActivityName=".MainActivity"></activity>
 
     </application>
 
