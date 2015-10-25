@@ -24,16 +24,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Weather"
-            android:label="@string/title_activity_weather"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity
             android:name=".Translate"
             android:label="@string/title_activity_translate"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity
-            android:name=".Audio"
-            android:label="@string/title_activity_audio"
             android:parentActivityName=".MainActivity"></activity>
 
     </application>
