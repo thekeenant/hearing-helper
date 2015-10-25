@@ -2,10 +2,17 @@ package com.nocomment.providingears;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
@@ -13,6 +20,10 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#54DEFD")));
+        Spannable text = new SpannableString("TEST FONT");
+        text.setSpan(new ForegroundColorSpan(Color.WHITE), 0, "test".length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        getActionBar().setTitle(text);
     }
 
     @Override
