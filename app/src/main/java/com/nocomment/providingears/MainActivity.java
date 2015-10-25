@@ -52,6 +52,19 @@ public class MainActivity extends Activity {
         text.setSpan(new ForegroundColorSpan(Color.WHITE), 0, "Hearing" .length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         getActionBar().setTitle(text);
 
+       /* Notification notification  = new Notification.Builder(this)
+                .setCategory(Notification.CATEGORY_MESSAGE)
+                .setContentTitle("Hearing Helper")
+                .setContentText("Listening for alerting Sounds (Click to disable)")
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setAutoCancel(true)
+                .setVisibility(1)
+                .setPriority(Notification.PRIORITY_HIGH)
+                .build();
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(123, notification);*/
+
         txtText = (TextView) findViewById(R.id.txtText);
 
         btnSpeak = (ImageButton) findViewById(R.id.btnSpeak);
@@ -144,6 +157,11 @@ public class MainActivity extends Activity {
 
 
             }
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return null;
         }
 
@@ -160,7 +178,24 @@ public class MainActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-        //isRuning = false;
+        Log.d("Pause", "Pause");
+        isRuning = false;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isRuning = true;
+        new LongOperation().execute("");
+        Log.d("Resume", "Resume");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("Stop", "Stop");
+        isRuning = true;
+        new LongOperation().execute("");
     }
 
     @Override
