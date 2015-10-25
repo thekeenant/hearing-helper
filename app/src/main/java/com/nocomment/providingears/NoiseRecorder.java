@@ -48,6 +48,5 @@ import android.util.Log;
             // relative to the pressure
             double pressure = x/51805.5336; //the value 51805.5336 can be derived from asuming that x=32767=0.6325 Pa and x=1 = 0.00002 Pa (the reference value)
             db = (20 * Math.log10(pressure/REFERENCE));
-            Log.d("TAG", "db="+db);
         return db;
     }}
