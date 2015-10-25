@@ -29,6 +29,7 @@ public class Audio extends Activity {
         protected String doInBackground(String... params) {
             NoiseRecorder noiseRecorder = new NoiseRecorder();
             double db = 0;
+
             for (int i = 0; i < 50; i++) {
                 db = noiseRecorder.highestNoiseLevel();
                 if (db > 90) {
