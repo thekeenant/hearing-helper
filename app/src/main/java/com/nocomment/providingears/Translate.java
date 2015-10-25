@@ -103,7 +103,6 @@ public class Translate extends Activity {
         }
     }
 
-
     public void onPause() {
         if (t1 != null) {
             t1.stop();
