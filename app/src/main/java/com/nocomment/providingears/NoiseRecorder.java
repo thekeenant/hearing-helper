@@ -5,6 +5,10 @@ import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.util.Log;
 
+import com.getpebble.android.kit.PebbleKit;
+
+import java.util.UUID;
+
 /**
  * Created by Joey on 10/25/2015.
  */
@@ -44,7 +48,7 @@ public class NoiseRecorder {
         return db;
     }
 
-    public double highestNoiseLevel(){
+    public double highestNoiseLevel() {
         int bufferSize = AudioRecord.getMinBufferSize(11025, AudioFormat.CHANNEL_IN_DEFAULT, AudioFormat.ENCODING_PCM_16BIT);
         //making the buffer bigger....
         AudioRecord recorder = new AudioRecord(MediaRecorder.AudioSource.MIC,

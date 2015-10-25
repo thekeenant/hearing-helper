@@ -28,8 +28,12 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.getpebble.android.kit.PebbleKit;
+import com.getpebble.android.kit.util.PebbleDictionary;
+
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.UUID;
 
 public class MainActivity extends Activity {
 
@@ -49,7 +53,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#54DEFD")));
         Spannable text = new SpannableString("Hearing Helper");
-        text.setSpan(new ForegroundColorSpan(Color.WHITE), 0, "Hearing" .length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        text.setSpan(new ForegroundColorSpan(Color.WHITE), 0, "Hearing".length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         getActionBar().setTitle(text);
 
        /* Notification notification  = new Notification.Builder(this)
@@ -152,6 +156,19 @@ public class MainActivity extends Activity {
                 if (db > 90) {
                     Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                     v.vibrate(500);
+                    PebbleKit.closeAppOnPebble(MainActivity.this, UUID.fromString("00b0d207-89c7-4b4a-ae17-d7a4761fa1c3"));
+                    try {
+                        Thread.sleep(300);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    PebbleKit.startAppOnPebble(MainActivity.this, UUID.fromString("00b0d207-89c7-4b4a-ae17-d7a4761fa1c3"));
+                    try {
+                        Thread.sleep(1500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    PebbleKit.closeAppOnPebble(MainActivity.this, UUID.fromString("00b0d207-89c7-4b4a-ae17-d7a4761fa1c3"));
                 }
                 Log.d("NOISE LEVEL", String.valueOf(db));
 
