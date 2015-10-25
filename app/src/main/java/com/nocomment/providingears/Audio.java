@@ -27,7 +27,7 @@ public class Audio extends Activity {
         protected String doInBackground(String... params) {
             NoiseRecorder noiseRecorder = new NoiseRecorder();
             for (int i = 0; i < 50; i++)
-                Log.d("NOISE LEVEL", String.valueOf(noiseRecorder.getNoiseLevel()));
+                Log.d("NOISE LEVEL", String.valueOf(noiseRecorder.highestNoiseLevel()));
             return null;
         }
 
