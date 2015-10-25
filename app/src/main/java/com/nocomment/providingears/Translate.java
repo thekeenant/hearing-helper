@@ -2,8 +2,6 @@ package com.nocomment.providingears;
 
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.Set;
-
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -56,7 +54,7 @@ public class Translate extends Activity {
                     txtText.setText("");
                 } catch (ActivityNotFoundException a) {
                     Toast t = Toast.makeText(getApplicationContext(),
-                            "Opps! Your device doesn't support Speech to Text",
+                            "Ops! Your device doesn't support Speech to Text",
                             Toast.LENGTH_SHORT);
                     t.show();
                 }
@@ -67,7 +65,6 @@ public class Translate extends Activity {
             @Override
             public void onInit(int status) {
                 if (status != TextToSpeech.ERROR) {
-                    t1.setVoice(new Voice("Jenny",Locale.US,Voice.QUALITY_HIGH,Voice.LATENCY_HIGH,true,null));
                     t1.setSpeechRate(0.8f);
                     t1.setLanguage(Locale.US);
                 }
